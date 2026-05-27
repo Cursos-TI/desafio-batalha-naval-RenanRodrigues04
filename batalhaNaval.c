@@ -1,14 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int matriz[10][10];
-
-    // Inicializa toda a matriz com 0 (água)
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            matriz[i][j] = 0;
-        }
-    }
+    int matriz[10][10] = {0}; //Inicializando a matriz somente com valores '0' em todas as posições.
 
     // Navio 1 (horizontal) - tamanho 3
     matriz[3][3] = 3;
@@ -20,8 +13,8 @@ int main() {
     matriz[7][4] = 3;
     matriz[8][4] = 3;
 
-    // Imprime letras das colunas
-    printf("   ");
+    // Imprimindo letras das colunas
+    printf("   "); //Espaço dado para a letra ficar exatamente em cima da coluna.
     for (int j = 0; j < 10; j++) {
         printf("%c ", 'A' + j);
     }
@@ -31,7 +24,7 @@ int main() {
     for (int i = 0; i < 10; i++) {
         printf("%d  ", i); // número da linha
 
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < 10; j++) { //exibindo a matriz.
             printf("%d ", matriz[i][j]);
         }
         printf("\n");
