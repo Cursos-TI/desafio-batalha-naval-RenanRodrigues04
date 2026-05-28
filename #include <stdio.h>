@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main() {
+    int matriz[10][10] = {0}; //Inicializando a matriz somente com valores '0' em todas as posições.
+
+    // Navio 1 (horizontal) - tamanho 3
+    matriz[3][3] = 3;
+    matriz[3][4] = 3;
+    matriz[3][5] = 3;
+
+    // Navio 2 (vertical) - tamanho 3
+    matriz[6][4] = 3;
+    matriz[7][4] = 3;
+    matriz[8][4] = 3;
+    
+    // Navio 3 (diagonal) - tamanho 3
+    for (int i = 3, j = 0; i < 6 && j < 3; i++, j++) { // 2 variáveis na estrutura FOR, para que 'i'(linha) e 'j'(coluna) aumentem simultaneamente.
+        if (i >= 0 && i < 10 && j >= 0 && j < 10 && matriz[i][j] == 0) { // Valida os limites do índice atual e se a vaga está livre.
+            matriz[i][j] = 3; // Imprime o valor nos indices indicados pelos valores das variáveis 'i' e 'j' a cada repetição.
+        }
+    }
+    
+    // Navio 4 (diagonal invertida) - tamanho 3 
+    for (int i = 0, j = 9; i < 3 && j > 6; i++, j--) { // As variáveis 'i' e 'j' aumentam simultaneamente enquanto a outra diminui, preenchendo os indices da coluna da direita para a esquerda, causando uma "diagonal invertida".
+        if (i >= 0 && i < 10 && j >= 0 && j < 10 && matriz[i][j] == 0) { // Obs: foi usado a verificação apenas nas diagonais, pois os navios 1 e 2, foram os primeiros a serem declarados e de maneira simples.
+            matriz[i][j] = 3;
+        }
+    }
+
+    // Imprimindo letras das colunas
+    printf("   "); //Espaço para a letra ficar exatamente em cima da coluna.
+    for (int j = 0; j < 10; j++) {
+        printf("%c ", 'A' + j);
+    }
+    printf("\n");
+
+    // Exibe a matriz com números nas linhas
+    for (int i = 0; i < 10; i++) {
+        printf("%d  ", i); // número da linha
+
+        for (int j = 0; j < 10; j++) { //exibindo a matriz.
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
